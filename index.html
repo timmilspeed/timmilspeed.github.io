@@ -1,219 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIM MILSPEED Krstac | Mašinska Obrada Metala</title>
+    <title>TIM MILSPEED | Sajt je u pripremi</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
-        body { color: #222; background-color: #f8f9fa; line-height: 1.6; }
-        header { background-color: #ffffff; padding: 10px 0; border-bottom: 4px solid #0026e6; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .container { width: 85%; max-width: 1200px; margin: auto; overflow: hidden; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo-img { height: 65px; display: block; width: auto; }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 25px; }
-        nav ul li a { color: #333; text-decoration: none; font-weight: 700; font-size: 15px; text-transform: uppercase; transition: 0.3s; }
-        nav ul li a:hover { color: #0026e6; }
-        .hero { background: linear-gradient(rgba(10, 20, 60, 0.9), rgba(15, 20, 45, 0.95)); color: #fff; padding: 90px 0; text-align: center; }
-        .hero h2 { font-size: 42px; margin-bottom: 15px; }
-        .hero p { font-size: 19px; margin-bottom: 35px; color: #d1d8e0; max-width: 800px; margin-left: auto; margin-right: auto; }
-        .badge { display: inline-block; background-color: #2ed573; color: white; padding: 6px 16px; font-weight: bold; border-radius: 4px; margin-bottom: 25px; font-size: 14px; text-transform: uppercase; }
-        .btn { display: inline-block; background-color: #0026e6; color: #fff; padding: 14px 35px; text-decoration: none; font-weight: bold; border-radius: 4px; text-transform: uppercase; transition: 0.3s; }
-        .btn:hover { background-color: #001cb3; }
-        .sections { padding: 60px 0; text-align: center; }
-        .bg-white { background: #fff; }
-        .bg-gray { background: #f1f2f6; }
-        .section-title { font-size: 30px; margin-bottom: 40px; position: relative; color: #1e272e; text-transform: uppercase; font-weight: 800; }
-        .section-title::after { content: ''; display: block; width: 70px; height: 4px; background: #0026e6; margin: 12px auto 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .card { background: #f8f9fa; padding: 30px 20px; border-radius: 6px; border-top: 4px solid #1e272e; transition: 0.3s; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .card:hover { transform: translateY(-5px); border-top-color: #0026e6; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .card h3 { margin-bottom: 12px; color: #1e272e; font-size: 20px; }
-        .card p { color: #57606f; font-size: 15px; }
-        .table-container { width: 100%; overflow-x: auto; background: #fff; padding: 15px; border-radius: 6px; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { background-color: #1e272e; color: #fff; padding: 12px; font-size: 14px; text-transform: uppercase; }
-        td { padding: 12px; border-bottom: 1px solid #dee2e6; color: #4b4b4b; font-size: 15px; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        .contact-box { display: flex; flex-wrap: wrap; gap: 40px; text-align: left; }
-        .contact-info, .contact-form { flex: 1; min-width: 300px; }
-        .contact-info h3 { font-size: 24px; margin-bottom: 20px; color: #1e272e; font-weight: 800; }
-        .contact-info p { margin-bottom: 12px; font-size: 16px; }
-        .contact-info strong { color: #0026e6; display: inline-block; width: 90px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 4px; font-size: 15px; background-color: #f8f9fa; }
-        .form-group textarea { height: 120px; resize: none; }
-        .btn-submit { background-color: #1e272e; color: white; border: none; cursor: pointer; width: 100%; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 4px; text-transform: uppercase; }
-        .btn-submit:hover { background-color: #0026e6; }
-        footer { background-color: #1e272e; color: #a4b0be; text-align: center; padding: 20px 0; font-size: 14px; border-top: 4px solid #0026e6; }
-        @media(max-width: 768px) { .navbar { flex-direction: column; text-align: center; } nav ul { margin-top: 15px; flex-direction: column; } nav ul li { margin: 5px 0; } .hero h2 { font-size: 32px; } }
- /* Stilovi za beskonačnu traku sa slikama (sa desna na levo) */
-        .gallery-section { padding: 60px 0; background: #fff; overflow: hidden; text-align: center; }
-        .gallery-container { display: flex; width: 100%; overflow: hidden; position: relative; padding: 20px 0; }
-        .gallery-track { display: flex; gap: 20px; animation: kretanjeTrake 20s linear infinite; width: max-content; }
-        .gallery-track:hover { animation-play-state: paused; } /* Traka staje kada se pređe mišem */
-        .gallery-item { width: 250px; height: 180px; object-fit: cover; border-radius: 6px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
-        .gallery-item:hover { transform: scale(1.05); }
-        @keyframes kretanjeTrake {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-250px * 4 - 20px * 4)); }
+        body { 
+            margin: 0; padding: 0; background-color: #1e272e; color: #fff; 
+            font-family: 'Segoe UI', sans-serif; display: flex; 
+            justify-content: center; align-items: center; height: 100vh; text-align: center; 
         }
-
-        /* Stilovi za Modal (Uvećanje slike na klik) */
-        .modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-        .modal-content { max-width: 85%; max-height: 85%; border-radius: 6px; box-shadow: 0 4px 20px rgba(255,255,255,0.1); }
-        .modal-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .maintenance-box { 
+            max-width: 600px; padding: 40px; background: #ffffff; 
+            color: #222; border-radius: 8px; border-top: 6px solid #0026e6;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin: 20px;
+        }
+        h2 { font-size: 28px; margin-bottom: 15px; color: #1e272e; text-transform: uppercase; }
+        p { font-size: 16px; color: #555; line-height: 1.6; margin-bottom: 25px; }
+        .contact { font-weight: bold; color: #0026e6; font-size: 18px; }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container navbar">
-            <div class="logo"><img src="logo.png" alt="TIM MILSPEED" class="logo-img"></div>
-            <nav>
-                <ul>
-                    <li><a href="#pocetna">Početna</a></li>
-                    <li><a href="#usluge">Usluge</a></li>
-                    <li><a href="#masinski-park">Mašinski Park</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section id="pocetna" class="hero">
-        <div class="container">
-            <div class="badge">Sertifikovana AA+ Bonitetna Ocena</div>
-            <h2>Mašinska obrada, prerada metala, i trgovina metalnim proizvodima</h2>
-            <p>Precizna CNC i konvencionalna obrada, trgovina metalnim proizvodima, profesionalno zavarivanje, industrijsko farbanje i transportna logistika iz Krstaca (Lučani).</p>
-            <a href="#kontakt" class="btn">Zatražite Ponudu</a>
-        </div>
-    </section>
-    <section id="usluge" class="sections bg-white">
-        <div class="container">
-            <h2 class="section-title">Naše Usluge</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Mašinska Obrada</h3>
-                    <p>Izrada mašinskih delova na savremenim glodalicama, strugovima i obradnim centrima prema vašim tehničkim crtežima ili uzorku.</p>
-                </div>
-                <div class="card">
-                    <h3>Zavarivanje  </h3>
-                    <p>Profesionalne usluge zavarivanja različitih vrsta metala. Izrađujemo stabilne, atestirane i pouzdane metalne konstrukcije i podsklopove.</p>
-                </div>
-                <div class="card">
-                    <h3>Farbanje i Zaštita</h3>
-                    <p>Kompletna završna industrijska obrada i efikasna antikorozivna zaštita metalnih delova farbanjem, čime obezbeđujemo maksimalnu dugotrajnost.</p>
-                </div>
-                <div class="card">
-                    <h3>Trgovina metalnim proizvodima, Prevoz i Logistika</h3>
-                    <p>Trgovina robom crne i obojene metalurgije, sopstveni pouzdani transport gotovih proizvoda i kabaste industrijske robe drumskim prevozom tereta direktno do vašeg pogona.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="masinski-park" class="sections bg-gray">
-        <div class="container">
-            <h2 class="section-title">Mašinski Park i Kapaciteti</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Naziv i model mašine</th>
-                            <th>Karakteristike / Radni hodovi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Glodalica Maho 1000 (3 ose)</td><td>1000 x 800 x 560 mm</td></tr>
-                        <tr><td>Glodalica Maho 1000 (4 ose)</td><td>1000 x 800 x 560 mm</td></tr>
-                        <tr><td>Glodalica Maho 600 (3 ose)</td><td>600 x 400 x 450 mm</td></tr>
-                        <tr><td>Glodalica Maho 600 (4 ose)</td><td>600 x 400 x 500 mm</td></tr>
-                        <tr><td>Obradni centar DMU 60P (5 osa)</td><td>600 x 650 x 550 mm</td></tr>
-                        <tr><td>CNC strug TRAUB TND 360</td><td>d360 / d160 x 800 mm</td></tr>
-                        <tr><td>Kombinovana mašina Peddinghaus SUPER 16</td><td>Za sečenje i probijanje limova</td></tr>
-                        <tr><td>Behringer testera HSA 260</td><td>Sa automatskim dodavačem</td></tr>
-                        <tr><td>Kasto testera SBA 260</td><td>Sa automatskim dodavačem</td></tr>
-                        <tr><td>Jaespa 320 dvostuba testera</td><td>Sa automatskim dodavačem</td></tr>
-                        <tr><td>Aparat za MIG zavarivanje ESAB </td><td>LAW 420W</td></tr>
-                        <tr><td>Aparat za MIG/MAG/TIG/ zavarivanje ESAB </td><td>Aristo Mig400 pulse U6</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section id="kontakt" class="sections bg-white" style="text-align: left;">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center;">Kontaktirajte Nas</h2>
-            <div class="contact-box">
-                <div class="contact-info">
-                    <h3>TIM MILSPEED </h3>
-                    <p>Obratite nam se sa poverenjem za sve vrste pojedinačnih upita, serijske proizvodnje, zavarivanja, farbanja ili usluga transporta.</p>
-                    <p style="margin-top: 25px;"><strong>ADRESA:</strong> Krstac bb, 32240 Krstac (Lučani)</p>
-                    <p><strong>TELEFON:</strong> 066/5818-126</p>
-                    <p><strong>E-MAIL:</strong> timmilspeed1@gmail.com</p>
-                    <p><strong>MB:</strong> 62926503</p>
-                </div>
-                <div class="contact-form">
-                    <form action="mailto:timmilspeed1@gmail.com" method="post" enctype="text/plain">
-                        <div class="form-group">
-                            <input type="text" name="Ime i Prezime / Firma" placeholder="Vaše ime ili naziv firme" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="Email" placeholder="Vaš E-mail" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="Poruka" placeholder="Opišite šta vam je potrebno..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">Pošalji Upit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 TIM MILSPEED Krstac. Sva prava zadržana.</p>
-        </div>
- <!-- Pokretna Galerija (Slajder kao titl) -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Galerija Radova</h2>
-            <p style="margin-bottom: 20px; color: #555;">Pređite mišem preko slike da zaustavite traku, kliknite na sliku za uvećan prikaz.</p>
-        </div>
-        <div class="gallery-container">
-            <!-- Duplirane slike u traci omogućavaju beskonačan efekat kruženja -->
-            <div class="gallery-track">
-                <img src="galerija1.jpg" alt="TIM MILSPEED radovi" class="gallery-item" onclick="uvecajSliku(this)">
-                <img src="galerija2.jpg" alt="TIM MILSPEED zavarivanje" class="gallery-item" onclick="uvecajSliku(this)">
-                <img src="galerija3.jpg" alt="TIM MILSPEED kamioni" class="gallery-item" onclick="uvecajSliku(this)">
-                <img src="galerija4.jpg" alt="TIM MILSPEED masinska obrada" class="gallery-item" onclick="uvecajSliku(this)">
-                <!-- Dupliran niz -->
-                <img src="galerija1.jpg" alt="TIM MILSPEED radovi" class="gallery-item" onclick="uvecajSliku(this)">
-                <img src="galerija2.jpg" alt="TIM MILSPEED zavarivanje" class="gallery-item" onclick="uvecajSliku(this)">
-                <img src="galerija3.jpg" alt="TIM MILSPEED kamioni" class="gallery-item" onclick="uvecajSliku(this)">
-                <img src="galerija4.jpg" alt="TIM MILSPEED masinska obrada" class="gallery-item" onclick="uvecajSliku(this)">
-            </div>
-        </div>
-    </section>
-
-    <!-- Prozor za uvećani prikaz (Modal) -->
-    <div id="mojModal" class="modal" onclick="zatvoriSliku()">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="uvecanaSlika">
+    <div class="maintenance-box">
+        <h2>Sajt je privremeno nedostupan</h2>
+        <p>Poštovani klijenti, internet prezentacija i online prodavnica firme <strong>TIM MILSPEED</strong> su trenutno u fazi redovnog održavanja i tehničkih provera. Uskoro smo ponovo sa vama sa ažuriranim asortimanom i cenama.</p>
+        <p>Za sve hitne upite, porudžbine i informacije, možete nas kontaktirati direktno putem telefona:</p>
+        <div class="contact">📞 066/5818-126</div>
     </div>
-
-    <!-- Funkcija za upravljanje klikom -->
-    <script>
-        function uvecajSliku(element) {
-            document.getElementById("mojModal").style.display = "flex";
-            document.getElementById("uvecanaSlika").src = element.src;
-        }
-        function zatvoriSliku() {
-            document.getElementById("mojModal").style.display = "none";
-        }
-    </script>
-    </footer>
 </body>
 </html>
